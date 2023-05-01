@@ -116,7 +116,7 @@ def adb_cla(df_new):
     importances = ABC.feature_importances_
     features = pd.DataFrame(X_test).columns.values
     indices = np.argsort(importances)
-    feature_scores = pd.Series(ABC.feature_importances_, index=X_test.columns).sort_values(ascending=True)
+    feature_scores = pd.Series(ABC.feature_importances_, index=pd.DataFrame(X_test).columns).sort_values(ascending=True)
     plt.figure(figsize=(18, 22))
     ax = feature_scores.plot.barh(y ='Score', color='r', align='center')
     plt.xlabel('Relative Importance')
