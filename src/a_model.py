@@ -96,7 +96,7 @@ def log_reg(df_new):
     importances = lr.coef_
     importances = importances[0]
     importances = abs(importances)
-    features = pd.DataFrame(X_test, columns=X_test.columns).columns.values
+    features = pd.DataFrame(X_test).columns.values
     indices = np.argsort(importances)
     plt.figure(figsize=(18, 22))
     ax = plt.subplot()
@@ -114,7 +114,7 @@ def adb_cla(df_new):
 
     ##Feature importance plot
     importances = ABC.feature_importances_
-    features = pd.DataFrame(X_test, columns=X_test.columns).columns.values
+    features = pd.DataFrame(X_test).columns.values
     indices = np.argsort(importances)
     feature_scores = pd.Series(ABC.feature_importances_, index=X_test.columns).sort_values(ascending=True)
     plt.figure(figsize=(18, 22))
@@ -134,7 +134,7 @@ def neighbour(df_new):
     results = permutation_importance(kNN, X_test, y_test, scoring='accuracy')
     importances = results.importances_mean
     importances = abs(importances)
-    features = pd.DataFrame(X_test, columns=X_test.columns).columns.values
+    features = pd.DataFrame(X_test).columns.values
     indices = np.argsort(importances)
     plt.figure(figsize=(18, 22))
     ax = plt.subplot()
