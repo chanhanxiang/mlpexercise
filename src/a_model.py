@@ -63,8 +63,7 @@ def run_models(df_new):
     f1_test = []
     roc_auc_test = []
 
-    for model in range(len(models)):
-        clf = models[model]
+    for clf, name in zip(models, model_names):
         clf.fit(X_train, y_train)
         pred = clf.predict(X_test)
         accuracy_test.append(accuracy_score(pred, y_test))
@@ -72,6 +71,7 @@ def run_models(df_new):
         recall_test.append(recall_score(pred, y_test))
         f1_test.append(f1_score(pred, y_test))
         roc_auc_test.append(roc_auc_score(pred, y_test))
+
 
     df_stat_test = pd.DataFrame({'Algorithm' : model_names, 
                         'Accuracy' : accuracy_test, 
