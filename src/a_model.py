@@ -47,7 +47,7 @@ def define_models():
             make_pipeline(StandardScaler(), RandomForestClassifier(n_estimators = 100)), 
             make_pipeline(StandardScaler(), BaggingClassifier(n_estimators = 100))]
 
-    return models, 
+    return models
 
 
 def run_models(df_new):
