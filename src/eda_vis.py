@@ -4,9 +4,16 @@ import seaborn as sns
 import matplotlib.pyplot as plt 
 import pingouin as pg
 
+from sklearn.neighbors import KNeighborsClassifier
+
 class visual(object):
-    def __init__(self, df_num):
+    def __init__(self, df_num, X_train, X_test, y_train, y_test):
         self.df_num = df_num
+        self.X_train = X_train
+        self.X_test = X_test
+        self.y_train = y_train
+        self.y_test = y_test
+
 
     def out_vis(df_num):
         '''Box-plot visualisation of outliers'''
@@ -39,5 +46,26 @@ class visual(object):
         plt.figure(figsize=(19, 9))
         sns.heatmap(df_num.corr(method='spearman'), annot=True, 
                     vmax=1, vmin = -1, square=True, cmap='BrBG', mask=mask);
+
+    def neighclass(X_train, X_test, y_train, y_test):
+        neighbors = np.arange(1, 20)
+        train_accuracy = np.empty(len(neighbors))
+        test_accuracy = np.empty(len(neighbors))
+
+        for i, k in enumerate(neighbors):
+            knn = KNeighborsClassifier(n_neighbors = k)
+            knn.fit(X_train, y_train)
+            train_accuracy[i] = knn.score(X_train, y_train)
+            test_accuracy[i] = knn.score(X_test, y_test)
+
+        #Generate plot
+        plt.figure(figsize=(10,6))
+        plt.title('KNN varying number of neighbors')
+        plt.plot(neighbors, test_accuracy, label='Testing Accuracy')
+        plt.plot(neighbors, train_accuracy, label='Training Accuracy')
+        plt.legend()
+        plt.xlabel('Number of Neighbors')
+        plt.ylabel('Accuracy')
+        plt.show()
 
     
