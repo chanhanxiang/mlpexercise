@@ -104,29 +104,18 @@ The classifier models are packaged into a dataframe, and run once each on the tr
 
 Results returned from the test set for the models run:
 
-Algorithm	                  Accuracy	Precision	Recall	  F1	      ROC AUC
-
-Logistic Regression	        0.931156	0.898500	0.961284	0.928832	0.933003
-
-Perceptron	                0.897617	0.888791	0.904762	0.896705	0.897741
-
-Stochastic Gradient Descent	0.931598	0.899382	0.961321	0.929321	0.933397
-
-Ridge Classifier	          0.919682	0.847308	0.990712	0.913416	0.928664
-
-GaussianNB	                0.901589	0.850838	0.946955	0.896327	0.905769
-
-BernoulliNB	                0.868049	0.894086	0.849832	0.871398	0.869050
-
-Decision Tree Classifier	  0.877317	0.897617	0.862595	0.879758	0.877940
-
-AdaBoostClassifier	        0.932480	0.909091	0.953704	0.930863	0.933429
-
-GradientBoostingClassifier	0.931598	0.899382	0.961321	0.929321	0.933397
-
-RandomForestClassifier	    0.942189	0.922330	0.960478	0.941018	0.942888
-
-BaggingClassifier	          0.937776	0.911739	0.961825	0.936112	0.938966
+|Algorithm	                  |Accuracy	|Precision	|Recall	  |F1	      |ROC AUC  |
+|Logistic Regression	        |0.931156	|0.898500	  |0.961284	|0.928832	|0.933003 |
+|Perceptron	                  |0.897617	|0.888791	  |0.904762	|0.896705	|0.897741 |
+|Stochastic Gradient Descent	|0.931598	|0.899382	  |0.961321	|0.929321	|0.933397 |
+|Ridge Classifier	            |0.919682	|0.847308	  |0.990712	|0.913416	|0.928664 |
+|GaussianNB	                  |0.901589	|0.850838	  |0.946955	|0.896327	|0.905769 |
+|BernoulliNB	                |0.868049	|0.894086	  |0.849832	|0.871398	|0.869050 |
+|Decision Tree Classifier	    |0.877317	|0.897617	  |0.862595	|0.879758	|0.877940 |
+|AdaBoostClassifier	          |0.932480	|0.909091	  |0.953704	|0.930863	|0.933429 |
+|GradientBoostingClassifier	  |0.931598	|0.899382	  |0.961321	|0.929321	|0.933397 |
+|RandomForestClassifier	      |0.942189	|0.922330 	|0.960478	|0.941018	|0.942888 |
+|BaggingClassifier	          |0.937776	|0.911739	  |0.961825	|0.936112	|0.938966 |
 
 All models have very decent metric scores with performance metric score exceeding >0.80 for all metrics obsrved. 
 
