@@ -47,16 +47,14 @@ def define_models():
             make_pipeline(StandardScaler(), RandomForestClassifier(n_estimators = 100)), 
             make_pipeline(StandardScaler(), BaggingClassifier(n_estimators = 100))]
 
-    model_names = ['Logistic Regression', 'Perceptron', 'Stochastic Gradient Descent', 'Ridge Classifier', \
-            'GaussianNB', 'BernoulliNB', 'Decision Tree Classifier', \
-            'AdaBoostClassifier', 'GradientBoostingClassifier', 'RandomForestClassifier', 'BaggingClassifier']
-
-    return models, model_names
+    return models, 
 
 
 def run_models(df_new):
     models = define_models()
-    model_names = define_models()
+    model_names = ['Logistic Regression', 'Perceptron', 'Stochastic Gradient Descent', 'Ridge Classifier', \
+        'GaussianNB', 'BernoulliNB', 'Decision Tree Classifier', \
+        'AdaBoostClassifier', 'GradientBoostingClassifier', 'RandomForestClassifier', 'BaggingClassifier']
     X_train, X_test, y_train, y_test = prepare_data(df_new)
 
     accuracy_test = []
