@@ -105,6 +105,7 @@ The classifier models are packaged into a dataframe, and run once each on the tr
 Results returned from the test set for the models run:
 
 |Algorithm	                  |Accuracy	|Precision	|Recall	  |F1	      |ROC AUC  |
+| :----------------------:    | :-----: | :-------: | :-----: | :-----: | :-----: |
 |Logistic Regression	        |0.931156	|0.898500	  |0.961284	|0.928832	|0.933003 |
 |Perceptron	                  |0.897617	|0.888791	  |0.904762	|0.896705	|0.897741 |
 |Stochastic Gradient Descent	|0.931598	|0.899382	  |0.961321	|0.929321	|0.933397 |
