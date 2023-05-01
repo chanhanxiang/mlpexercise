@@ -17,3 +17,6 @@ if __name__ == "__main__":
     df_new = a_preprocess.objmap(df_new)
     df_new = a_preprocess.onehotencode_drop(df_new)
     a_model.run_models(df_new)
+    a_model.log_reg(df_new)
+    a_model.adb_cla(df_new)
+    a_model.neighbour(df_new)

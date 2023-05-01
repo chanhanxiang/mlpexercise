@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import SMOTE
@@ -12,6 +14,9 @@ from sklearn.linear_model import LogisticRegression, Perceptron, SGDClassifier, 
 from sklearn.naive_bayes import GaussianNB, BernoulliNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier, RandomForestClassifier, BaggingClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+from sklearn.inspection import permutation_importance
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 def prepare_data(df_new):
@@ -82,3 +87,59 @@ def run_models(df_new):
 
     print(df_stat_test)
 
+def log_reg(df_new):
+    X_train, X_test, y_train, y_test = prepare_data(df_new)
+    lr = LogisticRegression()
+    lr.fit(X_train, y_train)
+
+    #Coefficient plot
+    importances = lr.coef_
+    importances = importances[0]
+    importances = abs(importances)
+    features = X_test.columns.values
+    indices = np.argsort(importances)
+    plt.figure(figsize=(18, 22))
+    ax = plt.subplot()
+    plt.barh(range(len(indices)), importances[indices], color='r', align='center')
+    ax.set_yticks(range(len(indices)))
+    ax.set_yticklabels(features[indices])
+    plt.xlabel('Relative Importance')
+    plt.title('Coefficient plot', fontsize=20)
+    plt.show()
+
+def adb_cla(df_new):
+    X_train, X_test, y_train, y_test = prepare_data(df_new)
+    ABC = AdaBoostClassifier(n_estimators = 100)
+    ABC.fit(X_train, y_train)
+
+    ##Feature importance plot
+    importances = ABC.feature_importances_
+    features = X_test.columns
+    indices = np.argsort(importances)
+    feature_scores = pd.Series(ABC.feature_importances_, index=X_test.columns).sort_values(ascending=True)
+    plt.figure(figsize=(18, 22))
+    ax = feature_scores.plot.barh(y ='Score', color='r', align='center')
+    plt.xlabel('Relative Importance')
+    plt.tick_params(axis='x', labelsize=15)
+    #plt.tick_params(axis='y', labelsize=15)
+    plt.title('Feature importance plot', size=15)
+    plt.show()
+
+def neighbour(df_new):
+    X_train, X_test, y_train, y_test = prepare_data(df_new)
+    kNN = KNeighborsClassifier(n_neighbors=8)
+    kNN.fit(X_train, y_train)
+
+    #Permutation plot
+    results = permutation_importance(kNN, X_test, y_test, scoring='accuracy')
+    importances = results.importances_mean
+    importances = abs(importances)
+    features = X_test.columns
+    indices = np.argsort(importances)
+    plt.figure(figsize=(18, 22))
+    ax = plt.subplot()
+    plt.barh(range(len(indices)), importances[indices], color='r', align='center')
+    ax.set_yticks(range(len(indices)), features[indices])
+    plt.xlabel('Relative Importance')
+    plt.title('Permutation importance plot', fontsize=20)
+    plt.show()
