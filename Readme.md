@@ -36,7 +36,7 @@ Run pipeline
 
 Run with virtualenv on local PC
 
-If run.sh does not lead to launch of Jupyter Notebook, suggest running the shell script using the following approach:
+If run.sh does not lead to launch of Jupyter Notebook, suggest running the shell script using the following approach. Additionally, do note that all files in submission needs to be downloaded to local PC in order to work:
 
 1. Open Git Bash, enter cd and followed by the directory pathway in the same line. Example:
 cd '.../path/to/directory'
