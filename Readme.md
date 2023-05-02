@@ -46,7 +46,7 @@ cd '.../path/to/directory'
 6. Activate local environment and install ipykernel
 7. Launch jupyter-notebook on local environment
 
-Script for run with virtuanenv maybe found at run_local.sh
+Script for run with virtualenv maybe found at run_local.sh
 
 
 ##### Environment specifications
