@@ -10,9 +10,9 @@ Email: chxuniversity@yahoo.com
 
   ├── .github
   ├── src
-  │   └── a_preprocess.py
-  │   └── a_model.py
-  │   └── a_main.py
+  │   └── mlp_preprocess.py
+  │   └── mlp_model.py
+  │   └── mlp_main.py
   │   └── db_conn.py
   │   └── preprocess.py
   │   └── eda_vis.py
@@ -26,6 +26,7 @@ Email: chxuniversity@yahoo.com
 
 ```
 
+*Note: run_local.sh is a supplementary file and not to be regarded as principal item in submission package.*
 
 ### Pipeline execution
 
@@ -35,7 +36,7 @@ Run pipeline
 
 Run with virtualenv on local PC
 
-If run.sh does not lead to launch of Jupyter Notebook, suggest running the shell script using the following approach:
+If run.sh does not lead to launch of Jupyter Notebook, suggest running the shell script using the following approach. Additionally, do note that all files in submission needs to be downloaded to local PC in order to work:
 
 1. Open Git Bash, enter cd and followed by the directory pathway in the same line. Example:
 cd '.../path/to/directory'
@@ -118,7 +119,7 @@ Results returned from the test set for the models run:
 |RandomForestClassifier	      |0.942189	|0.922330 	|0.960478	|0.941018	|0.942888 |
 |BaggingClassifier	          |0.937776	|0.911739	  |0.961825	|0.936112	|0.938966 |
 
-All models have very decent metric scores with performance metric score exceeding >0.80 for all metrics obsrved. 
+Results from the train and validation set can be found in eda.ipynb. All models have very decent metric scores with performance metric score exceeding >0.80 for all metrics obsrved. For the selected models, the metric scores of Accuracy, Precision, Recall and F1 are also plotted onto Confusion matrix, while the ROC and AUC scores are plotted into graph for clearer presentation.
 
 For the linear model, Logistic Regression is selected as it arguably has the best metric scores out of the 4 linear models (though it must be noted that other models have around the same or slightly worse off performance scores). For the tree/ensemble models, Decision Tree Classifier, RandomForestClassifier and BaggingClassifier are not selected as they have initial F1 scores of 1.00 in the training dataset, a sign of overfitting. Adaboostclassifier is chosen over GradientBoostingClassifier as it requires much less time when Recursive Feature Elimination with Cross Validation is performed.
 
