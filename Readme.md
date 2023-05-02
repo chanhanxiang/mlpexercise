@@ -26,6 +26,7 @@ Email: chxuniversity@yahoo.com
 
 ```
 
+*Note: run_local.sh is a supplementary file and not to be regarded as principal item in submission package/*
 
 ### Pipeline execution
 
