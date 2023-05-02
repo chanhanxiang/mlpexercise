@@ -119,7 +119,7 @@ Results returned from the test set for the models run:
 |RandomForestClassifier	      |0.942189	|0.922330 	|0.960478	|0.941018	|0.942888 |
 |BaggingClassifier	          |0.937776	|0.911739	  |0.961825	|0.936112	|0.938966 |
 
-All models have very decent metric scores with performance metric score exceeding >0.80 for all metrics obsrved. 
+All models have very decent metric scores with performance metric score exceeding >0.80 for all metrics obsrved. For the selected models, the metric scores of Accuracy, Precision, Recall and F1 are also plotted onto Confusion matrix, while the ROC and AUC scores are plotted into graph for clearer presentation.
 
 For the linear model, Logistic Regression is selected as it arguably has the best metric scores out of the 4 linear models (though it must be noted that other models have around the same or slightly worse off performance scores). For the tree/ensemble models, Decision Tree Classifier, RandomForestClassifier and BaggingClassifier are not selected as they have initial F1 scores of 1.00 in the training dataset, a sign of overfitting. Adaboostclassifier is chosen over GradientBoostingClassifier as it requires much less time when Recursive Feature Elimination with Cross Validation is performed.
 
