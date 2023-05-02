@@ -5,5 +5,5 @@
 #pip install -r requirements.txt
 
 cd src
-python3 a_main.py
+python3 mlp_main.py
 

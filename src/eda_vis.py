@@ -35,6 +35,7 @@ class visual(object):
             print("'{}' = {} ({}%) outliers".format(column, outliers, outliers_pct))
 
     def corr(df_num):
+        '''Display of Spearman correlation matrix'''
         print("The numeric 10 most correlated pairs, Spearman method:")
         spearman_rank = pg.pairwise_corr(df_num, method='spearman').loc[:,['X','Y','r']]
         pos = spearman_rank.sort_values(kind="quicksort", by=['r'], ascending=False).iloc[:5,:]
@@ -48,6 +49,7 @@ class visual(object):
                     vmax=1, vmin = -1, square=True, cmap='BrBG', mask=mask);
 
     def neighclass(X_train, X_test, y_train, y_test):
+        '''To generate k-nearest neighbour graph. Graph data is used to determine optimal k value.'''
         neighbors = np.arange(1, 20)
         train_accuracy = np.empty(len(neighbors))
         test_accuracy = np.empty(len(neighbors))
