@@ -1,10 +1,10 @@
-# AIAP 14 Readme
+# Readme
 
 Name: Chan Han Xiang
 
 Email: chxuniversity@yahoo.com
 
-### Submission folder
+### Folder
 
 ```bash
 
